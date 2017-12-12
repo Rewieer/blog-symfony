@@ -1,0 +1,10 @@
+{
+  "name": "s4blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Rewieer",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "4.0.0-beta"
+  }
+}
