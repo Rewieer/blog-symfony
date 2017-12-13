@@ -7,3 +7,4 @@
 ###< symfony/framework-bundle ###
 
 .idea
+/config/s4blog/config.yaml
