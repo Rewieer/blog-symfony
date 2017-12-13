@@ -6,7 +6,7 @@
  * file that was distributed with this source code.
  */
 
-namespace S4Blog\Config;
+namespace S4Blog\Core\Config;
 
 use Symfony\Component\Yaml\Yaml;
 

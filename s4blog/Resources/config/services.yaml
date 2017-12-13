@@ -3,32 +3,32 @@ parameters:
 
 services:
     s4blog.config.driver:
-        class: S4Blog\Config\ConfigDriver
+        class: S4Blog\Core\Config\ConfigDriver
         public: true
         arguments:
             - "%kernel.project_dir%/config/s4blog/config.yaml"
 
     s4blog.config:
-        class: S4Blog\Config\Config
+        class: S4Blog\Core\Config\Config
         public: true
         arguments:
             - "@s4blog.config.driver"
 
     s4blog.app:
-        class: S4Blog\BlogApplication
+        class: S4Blog\Core\BlogApplication
         public: true
         arguments:
             - "@s4blog.config"
 
     s4blog.config.metadata:
-        class: S4Blog\Config\ConfigMetadata
+        class: S4Blog\Core\Config\ConfigMetadata
         public: true
         arguments:
             - "@s4blog.config"
-            - "%s4blog_dir%/resources/config_metadata.yaml"
+            - "%s4blog_dir%/Resources/config/config_metadata.yaml"
 
     s4blog.config.form:
-        class: S4Blog\Config\ConfigForm
+        class: S4Blog\Core\Config\ConfigForm
         public: true
         arguments:
             - "@s4blog.app"
@@ -36,7 +36,7 @@ services:
             - "@s4blog.config.metadata"
 
     s4blog.twig.config:
-        class: S4Blog\Twig\ConfigTwigExtension
+        class: S4Blog\Core\Twig\ConfigTwigExtension
         public: true
         tags: ["twig.extension"]
         arguments:

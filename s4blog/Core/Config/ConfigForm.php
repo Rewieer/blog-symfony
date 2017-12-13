@@ -6,16 +6,14 @@
  * file that was distributed with this source code.
  */
 
-namespace S4Blog\Config;
+namespace S4Blog\Core\Config;
 
-
-use S4Blog\BlogApplication;
+use S4Blog\Core\BlogApplication;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Yaml\Yaml;
 
 class ConfigForm {
   /**
@@ -58,7 +56,12 @@ class ConfigForm {
 
     $this->form = $this->formFactory->create(FormType::class, $valuesClone);
     foreach ($valuesClone as $key => $value) {
-      $this->form->add($key, TextType::class, $this->getMetadata($formKeyMapping[$key]));
+      $metadata = $this->getMetadata($formKeyMapping[$key]);
+      if (!is_array($metadata)) {
+        $metadata = [];
+      }
+
+      $this->form->add($key, TextType::class, $metadata);
     }
   }
 

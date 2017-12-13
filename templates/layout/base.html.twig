@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}Blog{% endblock %}</title>
+    <title>{% block title %}{{ s4blog_getConfig("title") }}{% endblock %}</title>
     {% block stylesheets %}{% endblock %}
     <link rel="stylesheet" href="{{ asset("node_modules/bootstrap/dist/css/bootstrap.css") }}" />
     <link rel="stylesheet" href="{{ asset("css/main.css") }}" />

@@ -6,9 +6,10 @@
  * file that was distributed with this source code.
  */
 
-namespace S4Blog\Config;
+namespace S4Blog;
 
-interface ConfigDriverInterface {
-  public function read();
-  public function write(array $data);
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+class S4BlogBundle extends Bundle {
+
 }

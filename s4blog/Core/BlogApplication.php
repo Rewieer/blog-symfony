@@ -6,9 +6,9 @@
  * file that was distributed with this source code.
  */
 
-namespace S4Blog;
+namespace S4Blog\Core;
 
-use S4Blog\Config\Config;
+use S4Blog\Core\Config\Config;
 
 /**
  * Class BlogApplication

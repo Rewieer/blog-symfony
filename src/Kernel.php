@@ -35,7 +35,6 @@ class Kernel extends BaseKernel
     $container->setParameter('container.autowiring.strict_mode', true);
     $container->setParameter('container.dumper.inline_class_loader', true);
     $confDir = $this->getProjectDir().'/config';
-    $s4blogDir = $this->getProjectDir(). '/s4blog';
 
     $loader->load($confDir.'/packages/*'.self::CONFIG_EXTS, 'glob');
     if (is_dir($confDir.'/packages/'.$this->environment)) {
@@ -44,9 +43,6 @@ class Kernel extends BaseKernel
     $loader->load($confDir.'/services'.self::CONFIG_EXTS, 'glob');
     $loader->load($confDir.'/services_'.$this->environment.self::CONFIG_EXTS, 'glob');
 
-    if (is_file($s4blogDir. '/resources/services.yaml')) {
-      $loader->load($s4blogDir. '/resources/services.yaml', "glob");
-    }
   }
 
   protected function configureRoutes(RouteCollectionBuilder $routes) {

@@ -6,9 +6,9 @@
  * file that was distributed with this source code.
  */
 
-namespace S4Blog\Config;
+namespace S4Blog\Core\Config;
 
-use S4Blog\Common\DeepPath;
+use S4Blog\Core\Common\DeepPath;
 use Symfony\Component\Yaml\Yaml;
 
 class ConfigMetadata {

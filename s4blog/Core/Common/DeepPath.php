@@ -6,7 +6,7 @@
  * file that was distributed with this source code.
  */
 
-namespace S4Blog\Common;
+namespace S4Blog\Core\Common;
 
 class DeepPath {
   /**

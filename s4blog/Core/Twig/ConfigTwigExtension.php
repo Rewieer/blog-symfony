@@ -6,9 +6,9 @@
  * file that was distributed with this source code.
  */
 
-namespace S4Blog\Twig;
+namespace S4Blog\Core\Twig;
 
-use S4Blog\Config\Config;
+use S4Blog\Core\Config\Config;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 

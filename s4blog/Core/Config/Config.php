@@ -6,8 +6,8 @@
  * file that was distributed with this source code.
  */
 
-namespace S4Blog\Config;
-use S4Blog\Common\DeepPath;
+namespace S4Blog\Core\Config;
+use S4Blog\Core\Common\DeepPath;
 
 /**
  * Class Config
