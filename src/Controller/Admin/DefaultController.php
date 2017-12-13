@@ -23,8 +23,6 @@ class DefaultController extends Controller {
    * @return Response
    */
   public function index() {
-    $config = $this->get("s4blog.app");
-
     return $this->render("admin/index.html.twig");
   }
 }

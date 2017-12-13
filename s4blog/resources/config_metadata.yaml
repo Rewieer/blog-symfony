@@ -1,0 +1,12 @@
+title:
+    label: "Titre"
+social_networks:
+    facebook:
+        label: "Lien Facebook"
+    twitter:
+        label: "Lien Twitter"
+    instagram:
+        label: "Lien Instagram"
+google_analytics:
+    gtag:
+        label: "Google Analytics GTAG"

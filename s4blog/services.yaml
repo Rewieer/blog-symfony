@@ -1,6 +1,0 @@
-services:
-    s4blog.app:
-        class: S4Blog\BlogApplication
-        public: true
-        arguments:
-            - "%kernel.project_dir%/config"

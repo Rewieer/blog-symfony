@@ -6,6 +6,7 @@
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "^3.3",
         "symfony/console": "^3.3",
+        "symfony/form": "^3.3",
         "symfony/framework-bundle": "^3.3",
         "symfony/maker-bundle": "^1.0",
         "symfony/orm-pack": "^1.0",

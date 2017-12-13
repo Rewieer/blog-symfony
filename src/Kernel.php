@@ -44,8 +44,8 @@ class Kernel extends BaseKernel
     $loader->load($confDir.'/services'.self::CONFIG_EXTS, 'glob');
     $loader->load($confDir.'/services_'.$this->environment.self::CONFIG_EXTS, 'glob');
 
-    if (is_file($s4blogDir. '/services.yaml')) {
-      $loader->load($s4blogDir. '/services.yaml', "glob");
+    if (is_file($s4blogDir. '/resources/services.yaml')) {
+      $loader->load($s4blogDir. '/resources/services.yaml', "glob");
     }
   }
 

@@ -1,0 +1,43 @@
+parameters:
+    s4blog_dir: "%kernel.project_dir%/s4blog"
+
+services:
+    s4blog.config.driver:
+        class: S4Blog\Config\ConfigDriver
+        public: true
+        arguments:
+            - "%kernel.project_dir%/config/s4blog/config.yaml"
+
+    s4blog.config:
+        class: S4Blog\Config\Config
+        public: true
+        arguments:
+            - "@s4blog.config.driver"
+
+    s4blog.app:
+        class: S4Blog\BlogApplication
+        public: true
+        arguments:
+            - "@s4blog.config"
+
+    s4blog.config.metadata:
+        class: S4Blog\Config\ConfigMetadata
+        public: true
+        arguments:
+            - "@s4blog.config"
+            - "%s4blog_dir%/resources/config_metadata.yaml"
+
+    s4blog.config.form:
+        class: S4Blog\Config\ConfigForm
+        public: true
+        arguments:
+            - "@s4blog.app"
+            - "@form.factory"
+            - "@s4blog.config.metadata"
+
+    s4blog.twig.config:
+        class: S4Blog\Twig\ConfigTwigExtension
+        public: true
+        tags: ["twig.extension"]
+        arguments:
+            - "@s4blog.config"

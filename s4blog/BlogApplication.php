@@ -9,7 +9,6 @@
 namespace S4Blog;
 
 use S4Blog\Config\Config;
-use S4Blog\Config\ConfigLoader;
 
 /**
  * Class BlogApplication
@@ -22,7 +21,14 @@ class BlogApplication {
    */
   private $config;
 
-  public function __construct(string $configDir) {
-    $this->config = new Config(new ConfigLoader($configDir));
+  public function __construct(Config $config) {
+    $this->config = $config;
+  }
+
+  /**
+   * @return Config
+   */
+  public function getConfig() {
+    return $this->config;
   }
 }
