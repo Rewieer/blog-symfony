@@ -1,5 +1,6 @@
 parameters:
     s4blog_dir: "%kernel.project_dir%/s4blog"
+    s4blog_media_dir: "%kernel.project_dir%/public/s4b/media"
 
 services:
     s4blog.config.driver:
@@ -41,3 +42,29 @@ services:
         tags: ["twig.extension"]
         arguments:
             - "@s4blog.config"
+
+    s4blog.media.aws_media_driver:
+        class: S4Blog\Core\Media\AWSMediaDriver
+        public: true
+        arguments:
+            - "@s4blog.config"
+
+    s4blog.media.filesystem_media_driver:
+        class: S4Blog\Core\Media\FilesystemMediaDriver
+        public: true
+        arguments:
+            - "%s4blog_media_dir%"
+            - "@twig.extension.httpfoundation"
+            - "@assets.packages"
+
+    s4blog.media.media_manager:
+        class: S4Blog\Core\Media\MediaManager
+        public: true
+        arguments:
+            - "@s4blog.media.aws_media_driver"
+
+    s4blog.article.manager:
+        class: S4Blog\Core\Article\ArticleManager
+        public: true
+        arguments:
+            - "@doctrine.orm.entity_manager"

@@ -1,0 +1,53 @@
+{% extends "layout/admin.html.twig" %}
+{% block body %}
+  <div id="page-wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Liste des articles</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Liste
+          </div>
+          <!-- /.panel-heading -->
+          <div class="panel-body">
+            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Auteur</th>
+                  <th>Titre</th>
+                  <th>Slug</th>
+                  <th>En Ligne</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for article in list.entities %}
+                  <tr>
+                    <td>
+                      <a href="{{ path("admin_article_edit", {"id": article.id}) }}">{{ article.id }}</a>
+                    </td>
+                    <td>{{ article.author.name }}</td>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.slug }}</td>
+                    <td>
+                      {% if article.draft == true %}
+                        <b style="color: red;">Non</b>
+                      {% else %}
+                        <b style="color: green;">Oui</b>
+                      {% endif %}
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

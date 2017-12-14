@@ -1,0 +1,2 @@
+s4blog:
+    article: App\Entity\Article

@@ -10,3 +10,14 @@ social_networks:
 google_analytics:
     gtag:
         label: "Google Analytics GTAG"
+aws:
+    credentials:
+        key:
+            label: "Clé AWS"
+        secret:
+            label: "Secret AWS"
+    s3:
+        bucket:
+            label: "Bucket AWS"
+        region:
+            label: "Région du Bucket AWS"

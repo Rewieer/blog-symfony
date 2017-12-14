@@ -1,4 +1,7 @@
 {
+    "aws/aws-sdk-php": {
+        "version": "3.47.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -56,8 +59,29 @@
     "doctrine/orm": {
         "version": "v2.5.13"
     },
+    "friendsofsymfony/jsrouting-bundle": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.0",
+            "ref": "370bcf99b04c0dfd0b545745aad622d757af5e1b"
+        }
+    },
+    "guzzlehttp/guzzle": {
+        "version": "6.3.0"
+    },
+    "guzzlehttp/promises": {
+        "version": "v1.3.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.4.2"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
+    },
+    "mtdowling/jmespath.php": {
+        "version": "2.4.0"
     },
     "ocramius/package-versions": {
         "version": "1.2.0"
@@ -73,6 +97,9 @@
     },
     "psr/container": {
         "version": "1.0.0"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
     },
     "psr/log": {
         "version": "1.0.2"
@@ -218,6 +245,9 @@
             "ref": "85834af1496735f28d831489d12ab1921a875e0d"
         }
     },
+    "symfony/serializer": {
+        "version": "v4.0.1"
+    },
     "symfony/stopwatch": {
         "version": "v4.0.1"
     },
@@ -250,6 +280,9 @@
     },
     "twig/twig": {
         "version": "v2.4.4"
+    },
+    "willdurand/jsonp-callback-validator": {
+        "version": "v1.1.0"
     },
     "zendframework/zend-code": {
         "version": "3.3.0"

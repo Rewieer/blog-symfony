@@ -1,0 +1,116 @@
+{% extends "layout/admin.html.twig" %}
+{% block body %}
+
+  <div id="page-wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <br />
+
+        {% form_theme form 'form/admin.fields.html.twig' %}
+        {{ form_start(form) }}
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="form-group">
+              {{ form_widget(form.title, {"attr": {"class": "form-control title-input"}}) }}
+            </div>
+
+            {{ form_widget(form.content, {"attr": {"class": "form-control tinymce-enable"}}) }}
+
+            <input type="file" style="display: none;" id="upload" />
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">Paramétrage</div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <label>Slug</label>
+                  {{ form_widget(form.slug, {"attr": {"class": "form-control slug-input"}}) }}
+                  <small class="form-text text-muted">
+                    Permet d'avoir une url du type https://site.com/article/1-mon-super-article
+                  </small>
+                </div>
+
+                <div class="form-group">
+                  <label>Mots clés</label>
+                  {{ form_widget(form.keywords) }}
+                  <small class="form-text text-muted">
+                    Séparés par des virgules (,)
+                  </small>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-check-label">
+                    {{ form_widget(form.draft) }}
+                  </label>
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Sauvegarder" /><br /><br />
+
+                <small id="article-last-update" class="form-text text-muted">
+
+                </small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {{ form_end(form) }}
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+  </div>
+{% endblock %}
+{% block javascript %}
+  <script type="text/javascript" src="{{ asset("node_modules/tinymce/tinymce.min.js") }}"></script>
+  <script type="text/javascript">
+    var form = $('form:first')[0];
+    console.log(form);
+
+    var $upload = $('#upload');
+    var $titleBlock = $('#article_title');
+    var $slugBlock = $('#article_slug');
+    var $contentBlock = $('#article_content');
+    var $keywordsBlock = $('#article_keywords');
+    var $articleLastUpdate = $('#article-last-update');
+
+    $titleBlock.keyup(function() {
+      $slugBlock.val(S4Blog.Slug.slugify($(this).val()));
+    });
+
+
+    S4Blog.Article.Editor.init({
+      selector: ".tinymce-enable",
+      languageUrl: "{{ asset("js/tinymce/fr_FR.js") }}",
+      pickFile: function(callback, value, meta) {
+        if (meta.filetype === 'image') {
+          $upload.trigger('click');
+          $upload.off("change");
+          $upload.on('change', function() {
+            var file = this.files[0];
+            S4Blog.Media.upload(file, function (data) {
+                callback(data.path, {
+                  alt: ""
+                })
+              }
+            )
+          });
+        }
+      }
+    });
+    S4Blog.Article.AutoSave.init({
+      id: {{ article.id }},
+      provider: function() {
+        return new FormData(form);
+      },
+      delay: 15000,
+      onSave: function() {
+        var now = new Date();
+        var text = "Mis à jour à " + S4Blog.Common.twoDigits(now.getHours()) + ":"
+          + S4Blog.Common.twoDigits(now.getMinutes()) + ":"
+          + S4Blog.Common.twoDigits(now.getSeconds());
+        $articleLastUpdate.text(text);
+      }
+    });
+
+  </script>
+{% endblock %}

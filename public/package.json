@@ -5,6 +5,8 @@
   "author": "Rewieer",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "4.0.0-beta"
+    "bootstrap": "4.0.0-beta",
+    "prismjs": "^1.9.0",
+    "tinymce": "^4.7.4"
   }
 }

@@ -70,6 +70,14 @@
               </li>
 
               <li>
+                <a href="#"><i class="fa fa-file fa-fw"></i> Articles<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li><a href="{{ path("admin_article_list") }}">Tous les articles</a></li>
+                  <li><a href="{{ path("admin_article_new") }}">Nouvel article</a></li>
+                </ul>
+              </li>
+
+              <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Options<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                   <li>
@@ -174,9 +182,13 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{{ asset("admin/vendor/metisMenu/metisMenu.min.js") }}"></script>
 
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset("admin/js/sb-admin-2.min.js") }}"></script>
     <script src="{{ asset("admin/js/admin.js") }}"></script>
+    <script src="{{ asset("js/s4blog.js") }}"></script>
 
     {% block javascript %}{% endblock %}
   </body>

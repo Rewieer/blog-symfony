@@ -14,6 +14,10 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class S4BlogExtension extends Extension {
+  public function getNamespace() {
+    return "s4blog";
+  }
+
   public function load(array $configs, ContainerBuilder $container) {
     $loader = new YamlFileLoader(
       $container,
@@ -21,5 +25,7 @@ class S4BlogExtension extends Extension {
     );
 
     $loader->load("services.yaml");
+    $def = $container->getDefinition("s4blog.article.manager");
+    $def->addMethodCall("injectEntityClass", [$configs[0]["article"]]);
   }
 }

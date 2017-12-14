@@ -3,6 +3,8 @@
     "license": "proprietary",
     "require": {
         "php": "^7.0.8",
+        "aws/aws-sdk-php": "^3.47",
+        "friendsofsymfony/jsrouting-bundle": "^2.1",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "^3.3",
         "symfony/console": "^3.3",
