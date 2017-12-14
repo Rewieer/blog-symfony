@@ -9,3 +9,4 @@
 .idea
 /config/s4blog/config.yaml
 /public/s4b/**
+/public/node_modules/
