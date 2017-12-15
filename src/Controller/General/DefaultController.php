@@ -8,17 +8,27 @@
 
 namespace App\Controller\General;
 
+use S4Blog\Core\Article\ArticleRepositoryConfig;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends Controller {
   /**
-   * @Route("/")
+   * @Route("/{page}", name="homepage")
    * @return Response
    */
-  public function index() {
-    return $this->render("index.html.twig");
+  public function index($page = 1) {
+    $page = intval($page);
+    $list = $this->get("s4blog.article.manager")->getArticles(new ArticleRepositoryConfig([
+      "page" => $page,
+      "itemPerPage" => 30,
+      "publicOnly" => true,
+    ]));
+
+    return $this->render("index.html.twig", [
+      "list" => $list,
+    ]);
   }
 
   /**

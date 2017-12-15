@@ -1,14 +1,17 @@
 {% extends "layout/base.html.twig" %}
 {% block body %}
   <div class="col-lg-8 article-section">
-    <h2 class="article-name mt-4">
-      <a href="#">
-        Un chouette article
-      </a>
-      <span class="when">
-          le 29/11/2017
+    {% for article in list.entities %}
+      <h3 class="article-name mt-4">
+        <a href="{{ path("article_view", { "id": article.id, "slug": article.slug }) }}">
+          {{ article.title }}
+        </a>
+        <span class="when">
+          le {{ article.createdAt|date("d/m/Y") }}
         </span>
-    </h2>
+      </h3>
+    {% endfor %}
+
   </div>
 
   <!-- Sidebar Widgets Column -->

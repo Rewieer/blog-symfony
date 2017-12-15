@@ -11,17 +11,17 @@ namespace S4Blog\Core\Article;
 use S4Blog\Core\Common\RepositoryConfig;
 
 class ArticleRepositoryConfig extends RepositoryConfig {
-  private $draftOnly;
+  private $publicOnly;
 
   public function __construct(array $params) {
-    $this->draftOnly = $params["draftOnly"] ?? false;
+    $this->publicOnly = $params["publicOnly"] ?? true;
     parent::__construct($params);
   }
 
   /**
    * @return bool|mixed
    */
-  public function isDraftOnly() {
-    return $this->draftOnly;
+  public function isPublicOnly() {
+    return $this->publicOnly;
   }
 }

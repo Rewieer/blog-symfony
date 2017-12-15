@@ -8,8 +8,12 @@
 
 namespace S4Blog;
 
+use S4Blog\DependencyInjection\Compiler\TemplateConfiguratorPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class S4BlogBundle extends Bundle {
-
+  public function build(ContainerBuilder $container) {
+    $container->addCompilerPass(new TemplateConfiguratorPass());
+  }
 }

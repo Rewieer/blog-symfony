@@ -33,8 +33,8 @@ class ArticleRepository extends ServiceEntityRepository implements ArticleReposi
       ->select("COUNT(a)")
       ->from("App:Article", "a");
 
-    if ($config->isDraftOnly()) {
-      $qb->andWhere("a.isDraft = 1");
+    if ($config->isPublicOnly()) {
+      $qb->andWhere("a.isDraft = 0");
     }
 
     return $qb->getQuery()->getSingleScalarResult();
@@ -55,8 +55,8 @@ class ArticleRepository extends ServiceEntityRepository implements ArticleReposi
       ->setMaxResults($config->getItemsPerPage())
     ;
 
-    if ($config->isDraftOnly()) {
-      $qb->andWhere("a.isDraft = 1");
+    if ($config->isPublicOnly()) {
+      $qb->andWhere("a.isDraft = 0");
     }
 
     return new PaginatedList($config, $count, $qb->getQuery()->getResult());

@@ -1,0 +1,17 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ s4blog_getConfig("google_analytics.gtag") }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){
+    dataLayer.push(arguments);
+  }
+
+  var params = JSON.parse('{{ data|json_encode()|raw }}') || {};
+  var conf = {};
+  if (params.dimensions) {
+    conf["custom_map"] = Object.assign({}, params.dimensions);
+  }
+
+  gtag('js', new Date());
+  gtag('config', '{{ s4blog_getConfig("google_analytics.gtag") }}', conf);
+</script>

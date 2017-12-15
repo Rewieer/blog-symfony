@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>{% block title %}{{ s4blog_getConfig("title") }}{% endblock %}</title>
     {% block stylesheets %}{% endblock %}
+    {% block gtag %}{{ s4blog_renderTemplate("google-analytics")|raw }}{% endblock %}
     <link rel="stylesheet" href="{{ asset("node_modules/bootstrap/dist/css/bootstrap.css") }}" />
     <link rel="stylesheet" href="{{ asset("css/main.css") }}" />
   </head>
@@ -11,17 +12,17 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Anthony Benkhebbab</a>
+        <a class="navbar-brand" href="{{ path("homepage") }}">Anthony Benkhebbab</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Accueil</a>
+              <a class="nav-link" href="{{ path("homepage") }}">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Portfolio</a>
+              <a class="nav-link" href="{{ path("homepage") }}">Portfolio</a>
             </li>
           </ul>
         </div>

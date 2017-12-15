@@ -36,12 +36,30 @@ services:
             - "@form.factory"
             - "@s4blog.config.metadata"
 
+    s4blog.template.google_analytics_configuration:
+        class: S4Blog\Core\GoogleAnalytics\GoogleAnalyticsTemplateConfiguration
+        public: true
+        tags: ["s4b.template.configuration"]
+        arguments:
+            - "@twig"
+
+    s4blog.template.configurator:
+        class: S4Blog\Core\Template\TemplateConfigurator
+        public: true
+
     s4blog.twig.config:
         class: S4Blog\Core\Twig\ConfigTwigExtension
         public: true
         tags: ["twig.extension"]
         arguments:
             - "@s4blog.config"
+
+    s4blog.twig.template_configurator:
+        class: S4Blog\Core\Twig\TemplateConfiguratorTwigExtension
+        public: true
+        tags: ["twig.extension"]
+        arguments:
+            - "@s4blog.template.configurator"
 
     s4blog.media.aws_media_driver:
         class: S4Blog\Core\Media\AWSMediaDriver
@@ -68,3 +86,4 @@ services:
         public: true
         arguments:
             - "@doctrine.orm.entity_manager"
+

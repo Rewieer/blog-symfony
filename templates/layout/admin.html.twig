@@ -20,6 +20,7 @@
     <link href="{{ asset("admin/vendor/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css">
 
     <link href="{{ asset("admin/vendor/jquery/jquery-ui.min.css") }}" rel="stylesheet">
+    <link href="{{ asset("node_modules/prismjs/themes/prism.css") }}" rel="stylesheet">
 
   </head>
 
@@ -184,6 +185,8 @@
 
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+    <script src="{{ asset("node_modules/prismjs/prism.js") }}"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset("admin/js/sb-admin-2.min.js") }}"></script>

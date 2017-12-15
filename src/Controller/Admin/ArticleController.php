@@ -32,7 +32,7 @@ class ArticleController extends Controller {
     $list = $this->get("s4blog.article.manager")->getArticles(new ArticleRepositoryConfig([
       "page" => $page,
       "itemPerPage" => 30,
-      "draftOnly" => false,
+      "publicOnly" => false,
     ]));
 
     return $this->render("admin/article.list.html.twig", [
