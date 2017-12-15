@@ -85,5 +85,13 @@ services:
         class: S4Blog\Core\Article\ArticleManager
         public: true
         arguments:
+            - "%s4blog.article.entity%"
             - "@doctrine.orm.entity_manager"
+
+    s4blog.google_analytics.client:
+        class: S4Blog\Core\GoogleAnalytics\GoogleClient
+        public: true
+        arguments:
+            - "%s4blog.google_analytics.auth_file_path%"
+            - "@?debug.stopwatch"
 

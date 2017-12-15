@@ -25,7 +25,9 @@ class S4BlogExtension extends Extension {
     );
 
     $loader->load("services.yaml");
-    $def = $container->getDefinition("s4blog.article.manager");
-    $def->addMethodCall("injectEntityClass", [$configs[0]["article"]]);
+
+    $container->setParameter("s4blog.article.entity",$configs[0]["article"]["entity"]);
+    $container->setParameter("s4blog.article.form", $configs[0]["article"]["form"]);
+    $container->setParameter("s4blog.google_analytics.auth_file_path", $configs[0]["google_analytics"]["auth_file_path"]);
   }
 }

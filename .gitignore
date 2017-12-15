@@ -8,5 +8,6 @@
 
 .idea
 /config/s4blog/config.yaml
+/config/google-analytics.json
 /public/s4b/**
 /public/node_modules/

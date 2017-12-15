@@ -59,6 +59,9 @@
     "doctrine/orm": {
         "version": "v2.5.13"
     },
+    "firebase/php-jwt": {
+        "version": "v5.0.0"
+    },
     "friendsofsymfony/jsrouting-bundle": {
         "version": "2.0",
         "recipe": {
@@ -67,6 +70,15 @@
             "version": "2.0",
             "ref": "370bcf99b04c0dfd0b545745aad622d757af5e1b"
         }
+    },
+    "google/apiclient": {
+        "version": "v2.2.1"
+    },
+    "google/apiclient-services": {
+        "version": "v0.38"
+    },
+    "google/auth": {
+        "version": "v1.2.0"
     },
     "guzzlehttp/guzzle": {
         "version": "6.3.0"
@@ -80,6 +92,9 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
+    "monolog/monolog": {
+        "version": "1.23.0"
+    },
     "mtdowling/jmespath.php": {
         "version": "2.4.0"
     },
@@ -91,6 +106,9 @@
     },
     "paragonie/random_compat": {
         "version": "v2.0.11"
+    },
+    "phpseclib/phpseclib": {
+        "version": "2.0.9"
     },
     "psr/cache": {
         "version": "1.0.1"

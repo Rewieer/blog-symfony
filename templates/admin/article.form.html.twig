@@ -64,13 +64,9 @@
   <script type="text/javascript" src="{{ asset("node_modules/tinymce/tinymce.min.js") }}"></script>
   <script type="text/javascript">
     var form = $('form:first')[0];
-    console.log(form);
-
     var $upload = $('#upload');
     var $titleBlock = $('#article_title');
     var $slugBlock = $('#article_slug');
-    var $contentBlock = $('#article_content');
-    var $keywordsBlock = $('#article_keywords');
     var $articleLastUpdate = $('#article-last-update');
 
     $titleBlock.keyup(function() {

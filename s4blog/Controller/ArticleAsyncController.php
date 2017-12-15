@@ -28,8 +28,7 @@ class ArticleAsyncController extends Controller {
    * @throws \Exception
    */
   public function updateArticle(Article $article, Request $request) {
-    // TODO : dont use the article type directly here
-    $form = $this->createForm(ArticleType::class, $article);
+    $form = $this->createForm($this->getParameter("s4blog.article.form"), $article);
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {

@@ -21,8 +21,9 @@ class ArticleManager {
    */
   private $em;
 
-  public function __construct(EntityManagerInterface $em) {
+  public function __construct($entityClass, EntityManagerInterface $em) {
     $this->em = $em;
+    $this->injectEntityClass($entityClass);
   }
 
   /**

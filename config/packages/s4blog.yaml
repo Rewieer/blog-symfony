@@ -1,2 +1,6 @@
 s4blog:
-    article: App\Entity\Article
+    article:
+        entity: App\Entity\Article
+        form: App\Form\ArticleType
+    google_analytics:
+        auth_file_path: "%kernel.project_dir%/config/google-analytics.json"
