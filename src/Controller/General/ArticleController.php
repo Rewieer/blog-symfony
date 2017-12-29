@@ -38,13 +38,18 @@ class ArticleController extends Controller {
       "article:publisher" => $this->get("s4blog.config")->getProperty("social_networks.facebook"),
       "article:published_time" => $article->getCreatedAt()->format(\DateTime::RFC3339)
     ]);
+
+    $twitterName = "@" .substr(
+      $this->get("s4blog.config")->getProperty("social_networks.twitter"),
+    20);
+
     $this->configureTemplate("twitter-cards", [
       "twitter:card" => "summary_large_image",
       "twitter:description" => $article->getPreview(),
       "twitter:title" => $article->getTitle(),
-      "twitter:site" => $this->get("s4blog.config")->getProperty("social_networks.twitter"),
+      "twitter:site" => $twitterName,
       "twitter:image" => $article->getCoverImage(),
-      "twitter:creator" => $this->get("s4blog.config")->getProperty("social_networks.twitter"),
+      "twitter:creator" => $twitterName,
     ]);
 
     return $this->render("article.html.twig", [
