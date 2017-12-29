@@ -28,6 +28,7 @@ class S4BlogExtension extends Extension {
 
     $container->setParameter("s4blog.article.entity",$configs[0]["article"]["entity"]);
     $container->setParameter("s4blog.article.form", $configs[0]["article"]["form"]);
+    $container->setParameter("s4blog.newsletter.email_address_entity", $configs[0]["newsletter"]["email_address_entity"]);
     $container->setParameter("s4blog.google_analytics.auth_file_path", $configs[0]["google_analytics"]["auth_file_path"]);
   }
 }

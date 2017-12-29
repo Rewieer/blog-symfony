@@ -17,6 +17,9 @@ class ArticleType extends AbstractType {
       ->add("content", TextareaType::class, [
         "required" => false,
       ])
+      ->add("preview", TextareaType::class, [
+        "required" => false,
+      ])
       ->add("draft", CheckboxType::class, [
         "label" => "Mode Brouillon",
         "required" => false,

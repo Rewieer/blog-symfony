@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends Controller {
   /**
-   * @Route("/{page}", name="homepage")
+   * @Route("/{page}", name="homepage", requirements={"page": "\d+"})
    * @return Response
    */
   public function index($page = 1) {

@@ -31,7 +31,7 @@ class ArticleController extends Controller {
     $page = intval($page);
     $list = $this->get("s4blog.article.manager")->getArticles(new ArticleRepositoryConfig([
       "page" => $page,
-      "itemPerPage" => 30,
+      "itemsPerPage" => 10,
       "publicOnly" => false,
     ]));
 

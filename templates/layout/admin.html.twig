@@ -47,8 +47,7 @@
               <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-              <li><a href="#"><i class="fa fa-gear fa-fw"></i> Options</a></li>
-              <li><a href="#"><i class="fa fa-question fa-fw"></i> Aide</a></li>
+              <li><a href="{{ path("admin_settings_profile") }}"><i class="fa fa-gear fa-fw"></i> Options</a></li>
               <li class="divider"></li>
               <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Deconnexion</a>
               </li>
@@ -77,6 +76,16 @@
                   <li><a href="{{ path("admin_article_new") }}">Nouvel article</a></li>
                 </ul>
               </li>
+
+              <li>
+                <a href="#"><i class="fa fa-newspaper-o fa-fw"></i> Newsletter<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li><a href="{{ path("admin_newsletter_new_email_address") }}">Ecrire un mail</a></li>
+                  <li><a href="{{ path("admin_newsletter_new_email_address") }}">Ajouter une adresse</a></li>
+                  <li><a href="{{ path("admin_newsletter_list_email_address") }}">Tous les mails</a></li>
+                </ul>
+              </li>
+
 
               <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Options<span class="fa arrow"></span></a>

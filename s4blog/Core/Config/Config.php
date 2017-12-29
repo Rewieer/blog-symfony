@@ -88,7 +88,7 @@ class Config {
       if (is_scalar($value)) {
         $this->values[$currentKey.$key] = $value;
       } else {
-        $this->doLoadValues($data[$key], $key. ".");
+        $this->doLoadValues($data[$key], $currentKey. $key. ".");
       }
     }
   }

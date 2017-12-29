@@ -3,7 +3,7 @@
   <div id="page-wrapper">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header">Liste des articles</h1>
+        <h1 class="page-header">Liste des adresses e-mails</h1>
       </div>
     </div>
 
@@ -13,23 +13,29 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Auteur</th>
-              <th>Titre</th>
-              <th>Slug</th>
-              <th>En Ligne</th>
+              <th>Adresse e-mail</th>
+              <th>Date d'inscription</th>
+              <th>Confirmé</th>
+              <th>Accepte les e-mails</th>
             </tr>
           </thead>
           <tbody>
-            {% for article in list.entities %}
+            {% for emailAddress in list.entities %}
               <tr>
                 <td>
-                  <a href="{{ path("admin_article_edit", {"id": article.id}) }}">{{ article.id }}</a>
+                  <a href="{{ path("admin_newsletter_edit_email_address", {"id": emailAddress.id}) }}">{{ emailAddress.id }}</a>
                 </td>
-                <td>{{ article.author.name }}</td>
-                <td>{{ article.title }}</td>
-                <td>{{ article.slug }}</td>
+                <td>{{ emailAddress.emailAddress }}</td>
+                <td>{{ emailAddress.createdAt|date("d/m/Y") }}</td>
                 <td>
-                  {% if article.draft == true %}
+                  {% if emailAddress.isConfirmed == false %}
+                    <b style="color: red;">Non</b>
+                  {% else %}
+                    <b style="color: green;">Oui</b>
+                  {% endif %}
+                </td>
+                <td>
+                  {% if emailAddress.acceptsEmails == false %}
                     <b style="color: red;">Non</b>
                   {% else %}
                     <b style="color: green;">Oui</b>

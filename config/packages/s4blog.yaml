@@ -2,5 +2,7 @@ s4blog:
     article:
         entity: App\Entity\Article
         form: App\Form\ArticleType
+    newsletter:
+        email_address_entity: App\Entity\EmailAddress
     google_analytics:
         auth_file_path: "%kernel.project_dir%/config/google-analytics.json"

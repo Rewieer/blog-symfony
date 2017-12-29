@@ -24,6 +24,28 @@ class ArticleController extends Controller {
         "dimension1" => $article->getId(),
       ]
     ]);
+    $this->configureTemplate("facebook-opengraph", [
+      "og:locale" => "en_US",
+      "og:type" => "website",
+      "og:title" => $article->getTitle(),
+      "og:description" => "",
+      "og:url" => $this->generateUrl("article_view", [
+        "id" => $article->getId(),
+        "slug" => $article->getSlug(),
+      ], true),
+      "og:site_name" => $this->get("s4blog.config")->getProperty("title"),
+      "article:publisher" => $article->getAuthor()->getName(),
+      "article:section" => "Coding",
+      "article:published_time" => $article->getCreatedAt()->format(\DateTime::RFC3339)
+    ]);
+    $this->configureTemplate("twitter-cards", [
+      "twitter:card" => "summary_large_image",
+      "twitter:description" => "",
+      "twitter:title" => $article->getTitle(),
+      "twitter:site" => $this->get("s4blog.config")->getProperty("twitter"),
+      "twitter:image" => "",
+      "twitter:creator" => $this->get("s4blog.config")->getProperty("twitter"),
+    ]);
 
     return $this->render("article.html.twig", [
       "article" => $article,

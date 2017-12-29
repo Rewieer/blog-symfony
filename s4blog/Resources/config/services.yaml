@@ -43,6 +43,20 @@ services:
         arguments:
             - "@twig"
 
+    s4blog.template.facebook_opengraph_configuration:
+        class: S4Blog\Core\Facebook\FacebookOpenGraphTemplateConfiguration
+        public: true
+        tags: ["s4b.template.configuration"]
+        arguments:
+            - "@twig"
+
+    s4blog.template.twitter_card_configuration:
+        class: S4Blog\Core\Twitter\TwitterCardTemplateConfiguration
+        public: true
+        tags: ["s4b.template.configuration"]
+        arguments:
+            - "@twig"
+
     s4blog.template.configurator:
         class: S4Blog\Core\Template\TemplateConfigurator
         public: true
@@ -86,6 +100,13 @@ services:
         public: true
         arguments:
             - "%s4blog.article.entity%"
+            - "@doctrine.orm.entity_manager"
+
+    s4blog.newsletter.email_address.manager:
+        class: S4Blog\Core\Newsletter\EmailAddressManager
+        public: true
+        arguments:
+            - "%s4blog.newsletter.email_address_entity%"
             - "@doctrine.orm.entity_manager"
 
     s4blog.google_analytics.client:

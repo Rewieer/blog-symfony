@@ -8,9 +8,8 @@
 
 namespace App\Controller\Admin;
 
+use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -35,6 +34,30 @@ class SettingsController extends Controller {
 
     return $this->render("admin/settings_blog.html.twig", [
       "form" => $configForm->getForm()->createView()
+    ]);
+  }
+
+  /**
+   * @Route("/settings/profile", name="settings_profile")
+   * @return Response
+   */
+  public function userSettings(Request $request) {
+    $formBuilder = $this->get("form.factory")->createBuilder(UserType::class, $this->getUser());
+    $form = $formBuilder->getForm();
+
+    if ($request->isMethod("POST")) {
+      $form->handleRequest($request);
+      if ($form->isValid()) {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($this->getUser());
+        $em->flush();
+
+        // $request->getSession()->getFlashBag()->add("profile_update", "Votre profil a bien été mis à jour");
+      }
+    }
+
+    return $this->render("admin/settings_user.html.twig", [
+      "form" => $form->createView()
     ]);
   }
 }

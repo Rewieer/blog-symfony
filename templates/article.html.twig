@@ -5,15 +5,34 @@
   <link href="{{ asset("node_modules/prismjs/themes/prism.css") }}" rel="stylesheet">
 {% endblock %}
 {% block body %}
-  <div class="article-container container-fluid">
-    <h1 class="text-center">{{ article.title }}</h1>
-    <p class="text-center when"> le {{ article.createdAt|date("d/m/Y \\ H:i") }}</p>
+  <div class="col-lg-9 article-section">
+    <div class="article">
+      <h3 class="article-name mt-4">
+        <a href="{{ path("article_view", { "id": article.id, "slug": article.slug }) }}">
+          {{ article.title }}
+        </a>
+        <small class="when">
+          {{ article.createdAt|date("F Y") }}
+        </small>
+      </h3>
+      <div class="article-content">
+        {{ article.content|raw }}
+      </div>
+    </div>
+  </div>
 
-    <div class="content">
-      {{ article.content|raw }}
+  <!-- Sidebar Widgets Column -->
+  <div class="col-md-3">
+    <div class="about-me-block">
+      <img class="my-photo rounded mx-auto d-block"
+           src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/18447480_101026737149070_1371996189349792247_n.jpg?oh=1b15ca7124c2eb4b8935ba45fbf8b637&oe=5AD239B5" />
+      <p class="about-text">
+        I'm a tech entrepreneur who likes to talk about mobile application development, websites and microservices
+        in PHP and Javascript.
+      </p>
     </div>
   </div>
 {% endblock %}
 {% block javascripts %}
-<script src="{{ asset("node_modules/prismjs/prism.js") }}"></script>
+  <script src="{{ asset("node_modules/prismjs/prism.js") }}"></script>
 {% endblock %}

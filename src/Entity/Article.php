@@ -35,6 +35,11 @@ class Article implements ArticleInterface {
   /**
    * @ORM\Column(type="text")
    */
+  private $preview;
+
+  /**
+   * @ORM\Column(type="text")
+   */
   private $content;
 
   /**
@@ -181,6 +186,22 @@ class Article implements ArticleInterface {
    */
   public function setKeywords($keywords) {
     $this->keywords = $keywords;
+    return $this;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getPreview() {
+    return $this->preview;
+  }
+
+  /**
+   * @param mixed $preview
+   * @return Article
+   */
+  public function setPreview($preview) {
+    $this->preview = $preview;
     return $this;
   }
 }
