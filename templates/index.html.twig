@@ -18,7 +18,7 @@
           <div class="article-content">
             <p>
               {{ article.preview|raw }}<br />
-              <a href="{{ path("article_view", { "id": article.id, "slug": article.slug }) }}">Read it</a>
+              <a href="{{ path("article_view", { "id": article.id, "slug": article.slug }) }}">Read more..</a>
             </p>
 
           </div>
@@ -34,15 +34,6 @@
 
   </div>
 
-  <!-- Sidebar Widgets Column -->
-  <div class="col-md-3">
-    <div class="about-me-block">
-      <img class="my-photo rounded mx-auto d-block"
-           src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/18447480_101026737149070_1371996189349792247_n.jpg?oh=1b15ca7124c2eb4b8935ba45fbf8b637&oe=5AD239B5" />
-      <p class="about-text">
-        I'm a tech entrepreneur who likes to talk about mobile application development, websites and microservices
-        in PHP and Javascript.
-      </p>
-    </div>
-  </div>
+  {% include "blocks/about.html.twig" %}
+
 {% endblock %}
