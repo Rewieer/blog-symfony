@@ -80,6 +80,8 @@ class Article implements ArticleInterface {
     $this->isDraft = true;
     $this->slug = "sans-titre";
     $this->keywords = "";
+    $this->preview = "";
+    $this->coverImage = "";
   }
 
   /**
