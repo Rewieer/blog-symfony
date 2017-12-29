@@ -35,16 +35,16 @@ class ArticleController extends Controller {
       ], true),
       "og:site_name" => $this->get("s4blog.config")->getProperty("title"),
       "og:image" => $article->getCoverImage(),
-      "article:publisher" => $article->getAuthor()->getName(),
+      "article:publisher" => $this->get("s4blog.config")->getProperty("social_networks.facebook"),
       "article:published_time" => $article->getCreatedAt()->format(\DateTime::RFC3339)
     ]);
     $this->configureTemplate("twitter-cards", [
       "twitter:card" => "summary_large_image",
       "twitter:description" => $article->getPreview(),
       "twitter:title" => $article->getTitle(),
-      "twitter:site" => $this->get("s4blog.config")->getProperty("twitter"),
+      "twitter:site" => $this->get("s4blog.config")->getProperty("social_networks.twitter"),
       "twitter:image" => $article->getCoverImage(),
-      "twitter:creator" => $this->get("s4blog.config")->getProperty("twitter"),
+      "twitter:creator" => $this->get("s4blog.config")->getProperty("social_networks.twitter"),
     ]);
 
     return $this->render("article.html.twig", [
