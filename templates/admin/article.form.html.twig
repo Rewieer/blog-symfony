@@ -23,7 +23,12 @@
               <div class="panel-heading">Texte de présentation</div>
               <div class="panel-body">
                 <div class="form-group">
-                  {{ form_widget(form.preview, {"attr": {"class": "form-control slug-input"}}) }}
+                  <label>Lien de l'Image de Couverture</label>
+                  {{ form_widget(form.coverImage, {"attr": {"class": "form-control"}}) }}
+                </div>
+
+                <div class="form-group">
+                  {{ form_widget(form.preview, {"attr": {"class": "form-control"}}) }}
                   <small class="form-text text-muted">
                     Ce texte sera affiché en description dans les scrapping Facebook&Twitter mais aussi
                     en prévisualisation sur la page d'accueil

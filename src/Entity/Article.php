@@ -38,6 +38,11 @@ class Article implements ArticleInterface {
   private $preview;
 
   /**
+   * @ORM\Column(type="string", length=255)
+   */
+  private $coverImage;
+
+  /**
    * @ORM\Column(type="text")
    */
   private $content;
@@ -202,6 +207,22 @@ class Article implements ArticleInterface {
    */
   public function setPreview($preview) {
     $this->preview = $preview;
+    return $this;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getCoverImage() {
+    return $this->coverImage;
+  }
+
+  /**
+   * @param mixed $coverImage
+   * @return Article
+   */
+  public function setCoverImage($coverImage) {
+    $this->coverImage = $coverImage;
     return $this;
   }
 }

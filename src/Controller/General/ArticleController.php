@@ -28,22 +28,22 @@ class ArticleController extends Controller {
       "og:locale" => "en_US",
       "og:type" => "website",
       "og:title" => $article->getTitle(),
-      "og:description" => "",
+      "og:description" => $article->getPreview(),
       "og:url" => $this->generateUrl("article_view", [
         "id" => $article->getId(),
         "slug" => $article->getSlug(),
       ], true),
       "og:site_name" => $this->get("s4blog.config")->getProperty("title"),
+      "og:image" => $article->getCoverImage(),
       "article:publisher" => $article->getAuthor()->getName(),
-      "article:section" => "Coding",
       "article:published_time" => $article->getCreatedAt()->format(\DateTime::RFC3339)
     ]);
     $this->configureTemplate("twitter-cards", [
       "twitter:card" => "summary_large_image",
-      "twitter:description" => "",
+      "twitter:description" => $article->getPreview(),
       "twitter:title" => $article->getTitle(),
       "twitter:site" => $this->get("s4blog.config")->getProperty("twitter"),
-      "twitter:image" => "",
+      "twitter:image" => $article->getCoverImage(),
       "twitter:creator" => $this->get("s4blog.config")->getProperty("twitter"),
     ]);
 
