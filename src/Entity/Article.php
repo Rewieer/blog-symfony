@@ -38,7 +38,7 @@ class Article implements ArticleInterface {
   private $preview;
 
   /**
-   * @ORM\Column(type="string", length=255)
+   * @ORM\Column(type="string", length=255, nullable=true)
    */
   private $coverImage;
 
